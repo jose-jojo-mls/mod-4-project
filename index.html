@@ -7,7 +7,21 @@
     <title>mod-4-project</title>
   </head>
   <body>
-    <div id="app"></div>
+
+    <section id="product-details" class="hidden">
+      <h3 id="card-name">Blue Eyes White Dragon</h3>
+      <img id="card-img">
+      <p id="card-description"></p>
+      <p><span id="card-atk"></span><span id="card-def"></span><span id="card-stars"></span></p>
+    </section>
+
+    <form id="search-form">
+      <label for="query">Search</label>
+      <input type="text" name="query" id="query" placeholder="Search cards..." required>
+
+      <button type="submit">Search</button>
+    </form>
+    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
