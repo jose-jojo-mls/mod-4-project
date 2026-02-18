@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,12 +7,30 @@
     <title>mod-4-project</title>
   </head>
   <body>
-    <form id="search-form">
-      <label for="query">Search</label>
-      <input type="text" name="query" id="query" placeholder="Search cards..." required>
+    <main>
+      <form id="search-form">
+        <label for="query">Search</label>
+        <input
+          type="text"
+          name="query"
+          id="query"
+          placeholder="Search cards..."
+          required
+        />
 
-      <button type="submit">Search</button>
-    </form>
+        <button type="submit">Search</button>
+      </form>
+      <ul id="cards-list">
+        <li>
+          <img
+            src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg"
+            alt="Dark Magician"
+          />
+          <h3 id="card-name">Dark Magician</h3>
+          <p id="card-type">Normal Monster</p>
+        </li>
+      </ul>
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
