@@ -8,7 +8,9 @@ export const singleCardFetch = async (id) => {
         
         const info = await response.json();
         
-        return {data: info.data, error: null};
+        // info.data is an array that contains a single object with the card information 
+        // to access this object I use bracket notation
+        return {data: info.data[0], error: null};
     }
 
     catch(error) {
