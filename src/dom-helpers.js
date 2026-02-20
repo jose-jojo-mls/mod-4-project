@@ -20,18 +20,21 @@ export const renderRandomCards = async (data) => {
 };
 
 export const renderSingleCard = (card) => {
-  const cardTitle = document.querySelector("#card-title");
-  const cardDescription = document.querySelector("#card-description");
-  const cardImg = document.querySelector("#card-img");
-  const cardAtk = document.querySelector("#card-atk");
-  const cardDef = document.querySelector("#card-def");
-  const cardStars = document.querySelector("#card-stars");
+    const cardSection = document.querySelector('#card-details')
+    const cardTitle = document.querySelector("#card-title");
+    const cardDescription = document.querySelector("#card-description");
+    const cardImg = document.querySelector("#card-img");
+    const cardAtk = document.querySelector("#card-atk");
+    const cardDef = document.querySelector("#card-def");
+    const cardStars = document.querySelector("#card-stars");
 
-  cardTitle.textContent = card.name;
-  cardDescription.textContent = card.desc;
-  cardImg.src = card.card_images[0].image_url_small;
-  cardImg.alt = card.name;
-  cardAtk.textContent = `${card.atk}`;
-  cardDef.textContent = `${card.def}`;
-  cardStars.textContent = `${card.level}`;
+    cardSection.classList.remove('hidden');
+
+    cardTitle.textContent = card.name;
+    cardDescription.textContent = card.desc;
+    cardImg.src = card.card_images[0].image_url_small;
+    cardImg.alt = card.name;
+    cardAtk.textContent = `${card.atk}`;
+    cardDef.textContent = `${card.def}`;
+    cardStars.textContent = `${card.level}`;
 };
