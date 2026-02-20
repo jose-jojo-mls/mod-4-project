@@ -1,7 +1,6 @@
 export const singleCardFetch = async (id) => {
     try {
-
-        const response = fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`);
+        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`);
         if (!response.ok) {
             throw Error(`Failed to fetch card details`);
         }
