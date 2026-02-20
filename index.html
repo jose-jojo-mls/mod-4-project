@@ -8,15 +8,20 @@
   </head>
   <body>
     <main>
-      <form id="search-form">
-        <label for="query">Search</label>
-        <input
-          type="text"
-          name="query"
-          id="query"
-          placeholder="Search cards..."
-          required
-        />
+      <section id="form-section">
+        <form id="search-form">
+          <label for="query">Search</label>
+          <input
+            type="text"
+            name="query"
+            id="query"
+            placeholder="Search cards..."
+            required
+          />
+
+          <button type="submit">Search</button>
+        </form>
+      </section>
 
         <button type="submit">Search</button>
       </form>
@@ -26,20 +31,30 @@
       <img id="card-img" src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg" alt="Dark Magician">
       <p id="card-description">The ultimate wizard in terms of attack and defense.</p>
       <p><span id="card-atk">2500</span><span id="card-def"></span>2100<span id="card-stars">7</span></p>
+      <section id="product-details" class="hidden">
+        <h3 id="card-name">Blue Eyes White Dragon</h3>
+        <img id="card-img" />
+        <p id="card-description"></p>
+        <p>
+          <span id="card-atk"></span><span id="card-def"></span
+          ><span id="card-stars"></span>
+        </p>
       </section>
-      
-      <ul id="cards-list">
-        <li>
-          <img
-            src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg"
-            alt="Dark Magician"
-          />
-          <h3 id="card-name">Dark Magician</h3>
-          <p id="card-type">Normal Monster</p>
-        </li>
-      </ul>
+
+      <section id="list-section">
+        <ul id="cards-list">
+          <li id="card">
+            <img
+              src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg"
+              alt="Dark Magician"
+            />
+            <h3 id="card-name">Dark Magician</h3>
+            <p id="card-type">Normal Monster</p>
+          </li>
+        </ul>
+      </section>
     </main>
-    
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

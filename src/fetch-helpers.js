@@ -31,4 +31,3 @@ export const getRandomCards = async () => {
     return { data: null, error: error };
   }
 };
-getRandomCards();
