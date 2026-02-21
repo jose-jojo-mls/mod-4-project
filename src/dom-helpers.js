@@ -29,8 +29,16 @@ export const renderSingleCard = (card) => {
   const cardAtk = document.querySelector("#card-atk");
   const cardDef = document.querySelector("#card-def");
   const cardStars = document.querySelector("#card-stars");
+  const parentEl = document.querySelector("#tester");
 
   cardSection.classList.remove("hidden");
+  parentEl.classList.remove("hidden");
+  parentEl.classList.remove("hidden");
+
+  //code to make the animations continue playing after the first card is rendered
+  parentEl.style.animation = "none";
+  parentEl.offsetHeight;
+  parentEl.style.animation = "slideIn 0.6s ease-out forwards";
 
   cardTitle.textContent = card.name;
   cardDescription.textContent = card.desc;
