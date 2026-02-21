@@ -14,15 +14,59 @@ ul {
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  background-color: var(--cream);
+  color: var(--navy)
+}
+
+@keyframes golden { /* Not in use */
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes colorCycle {
+  0%   { color: #1a1a1a; }
+  20%  { color: #B771E5; }
+  40%  { color: goldenrod; }
+  60%  { color: #476EAE; }
+  80%  { color: #C5172E; }
+  100% { color: #1a1a1a; }
+}
+
+header {
+  display: flex;
+  justify-content:start;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-tan);
+  padding: 20px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
   background-color: var(--light-tan);
 }
 
+header img {
+  width: 50px;
+  height: 50px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 2rem;
+  animation: colorCycle 10s linear infinite;
+}
+
 :root {
-  --darkblue: #1a1a1a;
+  --cream: #FAF7F3;
   --light-tan: #F0E4D3;
   --dark-tan: #DCC5B2;
-  --cream: #FAF7F3
+  --navy: #1C2B4A;
+  --gold: #C9A84C;
+  --crimson: #9B1D2A;
+  --slate: #4A5C7A;
+  --white: #FFFFFF;
+  --shadow: rgba(28,43,74,0.2);
 }
 
 /* Form section */
@@ -50,11 +94,8 @@ button {
 
 /* Single card details section */
 
-.hidden {
-  display: none;
-}
 
-#card-details {
+#card-details, #tester {
   padding: 30px;
   display: flex;
   align-items: flex-start;
@@ -76,21 +117,30 @@ button {
 }
 
 #card-specifics span {
-  color:brown
+  color: var(--crimson);
+}
+
+.hidden {
+  display: none;
 }
 
 /* Multi-card details */
 
 #cards-list {
+  justify-content: center;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
-  padding: 30px;
+  padding: 25px;
 }
 
 .card {
   padding: 5px;
+}
+
+.card p {
+  color: var(--slate)
 }
 
 .img {
@@ -104,5 +154,5 @@ button {
 
 .img:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px var(--darkblue);
+  box-shadow: 0 8px 24px var(--navy);
 }

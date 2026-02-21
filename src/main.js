@@ -11,7 +11,7 @@ getRandomCards().then((dataObj) => {
 });
 
 listSection.addEventListener("click", (event) => {
-  // event.preventDefault();
+  event.preventDefault();
   const closestLi = event.target.closest("li");
   const cardId = closestLi.dataset.id;
 
