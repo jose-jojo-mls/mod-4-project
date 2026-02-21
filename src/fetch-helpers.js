@@ -1,27 +1,27 @@
 export const singleCardFetch = async (id) => {
-    try {
-        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`);
-        if (!response.ok) {
-            throw Error(`Failed to fetch card details`);
-        }
-        
-        const info = await response.json();
-        
-        // info.data is an array that contains a single object with the card information 
-        // to access this object I use bracket notation
-        return {data: info.data[0], error: null};
+  try {
+    const response = await fetch(
+      `https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`
+    );
+    if (!response.ok) {
+      throw Error(`Failed to fetch card details`);
     }
 
-    catch(error) {
-        return {data: null, error: error};
-    }
-}
+    const info = await response.json();
+
+    // info.data is an array that contains a single object with the card information
+    // to access this object I use bracket notation
+    return { data: info.data[0], error: null };
+  } catch (error) {
+    return { data: null, error: error };
+  }
+};
 export const getRandomCards = async () => {
   try {
     const response = await fetch(
       `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&sort=random&cachebust`
     );
-     if (!response.ok) {
+    if (!response.ok) {
       throw new Error(`Failed to fetch card details`);
     }
     const info = await response.json();
