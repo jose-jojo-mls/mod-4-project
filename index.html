@@ -4,47 +4,73 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>mod-4-project</title>
   </head>
   <body>
+    <header>
+      <img
+        src="https://assets.streamlinehq.com/image/private/w_240,h_240,ar_1/f_auto/v1/icons/cartoon-manga/kawaii-manga-yugioh-games-millennium-puzzle-dmxvivtaibgxi70qrdmh6.png/kawaii-manga-yugioh-games-millennium-puzzle-wmr01n9p8a3p1wibpsrbc.png?_a=DATAiZAAZAA0"
+      />
+      <h1>ShadowRealm</h1>
+      <img
+        src="https://assets.streamlinehq.com/image/private/w_240,h_240,ar_1/f_auto/v1/icons/cartoon-manga/kawaii-manga-yugioh-games-millennium-puzzle-dmxvivtaibgxi70qrdmh6.png/kawaii-manga-yugioh-games-millennium-puzzle-wmr01n9p8a3p1wibpsrbc.png?_a=DATAiZAAZAA0"
+      />
+    </header>
     <main>
       <section id="form-section">
-        <form id="search-form">
-          <label for="query">Search</label>
-          <input
-            type="text"
-            name="query"
-            id="query"
-            placeholder="Search cards..."
-            required
-          />
+        <form
+          action="https://formspree.io/f/mjgeaydr"
+          method="POST"
+          id="search-form"
+        >
+          <div id="search-bar">
+            <label for="query">Search</label>
+            <input
+              type="text"
+              name="query"
+              id="query"
+              placeholder="Search cards..."
+              required
+            />
+          </div>
 
           <button type="submit">Search</button>
         </form>
       </section>
 
-        <button type="submit">Search</button>
-      </form>
-      
       <section id="card-details" class="hidden">
-      <h3 id="card-title">Dark Magician</h3>
-      <img id="card-img" src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg" alt="Dark Magician">
-      <p id="card-description">The ultimate wizard in terms of attack and defense.</p>
-      <p>
-        <span id="card-atk">2500 </span> 
-        <span id="card-def">2100 </span>
-        <span id="card-stars">7</span></p>
+        <div id="tester" class="hidden">
+          <div id="card-basics">
+            <h3 id="card-title">Dark Magician</h3>
+            <img
+              id="card-img"
+              src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg"
+              alt="Dark Magician"
+            />
+          </div>
+          <div id="card-specifics">
+            <p id="card-description">
+              The ultimate wizard in terms of attack and defense.
+            </p>
+            <p>
+              <span id="card-atk"> ATK: 2500 </span>
+              <span id="card-def">DEF: 2100 </span>
+              <span id="card-stars">STARS: 7</span>
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="list-section">
         <ul id="cards-list">
-          <li id="card">
+          <li class="card">
             <img
               src="https://images.ygoprodeck.com/images/cards_small/46986414.jpg"
               alt="Dark Magician"
             />
-            <h3 id="card-name">Dark Magician</h3>
-            <p id="card-type">Normal Monster</p>
+            <h3 class="card-name">Dark Magician</h3>
+            <p class="card-type">Normal Monster</p>
           </li>
         </ul>
       </section>

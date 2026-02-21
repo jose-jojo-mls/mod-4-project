@@ -4,6 +4,18 @@
   padding: 0;
 }
 
+:root {
+  --cream: #FAF7F3;
+  --light-tan: #F0E4D3;
+  --dark-tan: #DCC5B2;
+  --navy: #1C2B4A;
+  --gold: #C9A84C;
+  --crimson: #9B1D2A;
+  --slate: #4A5C7A;
+  --white: #FFFFFF;
+  --shadow: rgba(28,43,74,0.2);
+}
+
 img {
   width: 100%;
 }
@@ -12,8 +24,224 @@ ul {
   list-style: none;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--cream);
+  color: var(--navy)
+}
+
+/* Key Frames for animation  */
+@keyframes slideIn {
+  0%   { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: translateY(-5px) rotate(0deg); }
+  25%       { transform: translateY(-5px) rotate(-3deg); }
+  75%       { transform: translateY(-5px) rotate(3deg); }
+}
+
+@keyframes golden { /* Not in use */
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes colorCycle {
+  0%   { color: #1a1a1a; }
+  20%  { color: #B771E5; }
+  40%  { color: goldenrod; }
+  60%  { color: #476EAE; }
+  80%  { color: #C5172E; }
+  100% { color: #1a1a1a; }
+}
+
+/* Header Section  */
+
+header {
+  display: flex;
+  justify-content:start;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-tan);
+  padding: 20px;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background-color: var(--light-tan);
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 2rem;
+  animation: colorCycle 10s linear infinite;
+}
+
+header h1:hover {
+  background: linear-gradient(90deg, var(--navy) 30%, var(--gold) 50%, var(--navy) 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: golden 3s linear infinite;
+}
+
+/* Form section */
+
+#form-section {
+  display: flex;
+  padding: 30px;
+}
+
+label {
+  font-size: large;
+}
+
+input {
+  padding: 0px 10px;
+}
+
+#search-bar {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px;
+}
+
 /* Single card details section */
+
+
+#card-details, #tester {
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#card-basics {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  flex-shrink: 0;
+  gap: 10px;
+  animation: slideIn 1s ease-out forwards;
+
+}
+
+#card-specifics {
+  padding-left: 20px;
+  text-align: justify;
+  font-size:large;
+}
+
+#card-specifics span {
+  color: var(--crimson);
+}
 
 .hidden {
   display: none;
+}
+
+/* Multi-card details */
+
+#cards-list {
+  justify-content: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  padding: 25px;
+}
+
+.card {
+  padding: 5px;
+}
+
+.card p {
+  color: var(--slate)
+}
+
+.img {
+  max-width: 250px;
+  max-height: 400px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.img:hover {
+  animation: wobble 0.75s ease-in-out infinite;
+  box-shadow: 0 8px 24px var(--navy);
+}
+
+/* Media Queries */
+
+@media (max-width: 576px){
+  #cards-list {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  #tester {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #card-specifics {
+    text-align: justify;
+    padding: 0%;
+  }
+}
+
+@media (min-width: 576px){
+  #cards-list {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    justify-content: center;
+  }
+
+  #card-details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 700px){
+  #cards-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 875px){
+  #cards-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1050px){
+  #cards-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1200px){
+  #cards-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1400px){
+  #cards-list {
+    grid-template-columns: repeat(7, 1fr);
+  }
 }
