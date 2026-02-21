@@ -33,7 +33,6 @@ export const renderSingleCard = (card) => {
 
   cardSection.classList.remove("hidden");
   parentEl.classList.remove("hidden");
-  parentEl.classList.remove("hidden");
 
   //code to make the animations continue playing after the first card is rendered
   parentEl.style.animation = "none";
