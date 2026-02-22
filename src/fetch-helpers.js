@@ -48,3 +48,18 @@ export const getRandomCards = async () => {
     return { data: null, error: error };
   }
 };
+
+export const fetchDecksByArchetype = async (archetype) => {
+  try {
+    const response = await fetch(
+      `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${encodeURIComponent(
+        archetype
+      )}&num=5&offset=0`
+    );
+    if (!response.ok) throw new Error("Failed to fetch archetype data");
+    const info = await response.json();
+    return { data: info.data, error: null };
+  } catch (error) {
+    return { data: null, error };
+  }
+};
