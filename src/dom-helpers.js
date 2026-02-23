@@ -22,29 +22,37 @@ export const renderRandomCards = async (data) => {
 };
 
 export const renderSingleCard = (card) => {
-  const cardSection = document.querySelector("#card-details");
-  const cardTitle = document.querySelector("#card-title");
-  const cardDescription = document.querySelector("#card-description");
-  const cardImg = document.querySelector("#card-img");
-  const cardAtk = document.querySelector("#card-atk");
-  const cardDef = document.querySelector("#card-def");
-  const cardStars = document.querySelector("#card-stars");
-  const parentEl = document.querySelector("#tester");
+    const cardSection = document.querySelector("#card-details");
+    const cardTitle = document.querySelector("#card-title");
+    const cardDescription = document.querySelector("#card-description");
+    const cardImg = document.querySelector("#card-img");
+    const cardAtk = document.querySelector("#card-atk");
+    const cardDef = document.querySelector("#card-def");
+    const cardStars = document.querySelector("#card-stars");
+    const parentEl = document.querySelector("#tester");
+    const monsterStats = document.querySelector('#monster-stats');
 
-  cardSection.classList.remove("hidden");
-  parentEl.classList.remove("hidden");
+    cardSection.classList.remove("hidden");
+    parentEl.classList.remove("hidden");
 
-  //code to make the animations continue playing after the first card is rendered
-  parentEl.style.animation = "none";
-  parentEl.offsetHeight;
-  parentEl.style.animation = "slideIn 0.6s ease-out forwards";
+    //code to make the animations continue playing after the first card is rendered
+    parentEl.style.animation = "none";
+    parentEl.offsetHeight;
+    parentEl.style.animation = "slideIn 0.6s ease-out forwards";
 
-  cardTitle.textContent = card.name;
-  cardDescription.textContent = card.desc;
-  cardImg.src = card.card_images[0].image_url_small;
-  cardImg.alt = card.name;
-  cardImg.classList.add("img");
-  cardAtk.textContent = `ATK: ${card.atk}`;
-  cardDef.textContent = `DEF: ${card.def}`;
-  cardStars.textContent = `STARS: ${card.level}`;
+    cardTitle.textContent = card.name;
+    cardDescription.textContent = card.desc;
+    cardImg.src = card.card_images[0].image_url_small;
+    cardImg.alt = card.name;
+    cardImg.classList.add("img");
+    if (card.atk !== undefined) {
+        monsterStats.classList.remove('hidden');
+        cardAtk.textContent = `ATK: ${card.atk}`;
+        cardDef.textContent = card.def !== null ? `DEF: ${card.def}`: `Link-${card.linkval}`;
+        cardStars.textContent = `STARS: ${card.level}`;
+        }
+
+    else {
+        monsterStats.classList.add('hidden');
+    }
 };
