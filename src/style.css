@@ -33,6 +33,12 @@ body {
 }
 
 /* Key Frames for animation  */
+
+@keyframes reveal {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
 @keyframes slideIn {
   0%   { transform: translateX(-100px); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
@@ -62,7 +68,7 @@ body {
 
 header {
   display: flex;
-  justify-content:start;
+  justify-content:space-between;
   align-items: center;
   border-bottom: 1px solid var(--dark-tan);
   padding: 20px;
@@ -92,48 +98,29 @@ header h2:hover {
   animation: golden 3s linear infinite;
 }
 
-/* Main page section */
-
-#main-page {
-  min-height: 100vh;
+#logo-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 100px;
-  gap: 50px;
-  background: linear-gradient(to bottom, var(--gold), var(--cream));
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#page-title {
-  font-size: 3rem;
-  font-weight: 200;
-}
-
-#main-page p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  width: 90%;
 }
 
 /* Form section */
 
-#form-section {
-  display: flex;
+/* #form-section {
   padding: 30px;
-}
+} */
 
-label {
-  font-size: large;
+#search-form {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 input {
-  padding: 0px 10px;
+  padding: 5px 10px;
 }
 
-#search-bar {
+/* #search-bar {
   margin-bottom: 10px;
-}
+} */
 
 button {
   padding: 5px;
@@ -170,7 +157,72 @@ button {
 }
 
 .hidden {
-  display: none;
+  display: none !important
+}
+
+/* Modal Section */
+
+#deck-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+#deck-modal-content {
+  background-color: var(--cream);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  animation: reveal 0.8s ease-out forwards;
+}
+
+#deck-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--navy);
+}
+
+#deck-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+#deck-modal-list a {
+  color: var(--navy);
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid var(--dark-tan);
+  border-radius: 6px;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+#deck-modal-list a:hover {
+  background-color: var(--light-tan);
+  box-shadow: 0 8px 24px var(--navy);
+  transition: appear 0.6s ease-in forwards;
+}
+
+.printing-label {
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--navy);
 }
 
 /* Multi-card details */
