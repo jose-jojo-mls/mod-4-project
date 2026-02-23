@@ -9,15 +9,15 @@
   </head>
   <body>
     <header>
-      <img
+      <div id="logo-container">
+        <img
         src="https://assets.streamlinehq.com/image/private/w_240,h_240,ar_1/f_auto/v1/icons/cartoon-manga/kawaii-manga-yugioh-games-millennium-puzzle-dmxvivtaibgxi70qrdmh6.png/kawaii-manga-yugioh-games-millennium-puzzle-wmr01n9p8a3p1wibpsrbc.png?_a=DATAiZAAZAA0"
-      />
-      <h1>ShadowRealm</h1>
-      <img
+        />
+        <h1>ShadowRealm</h1>
+        <img
         src="https://assets.streamlinehq.com/image/private/w_240,h_240,ar_1/f_auto/v1/icons/cartoon-manga/kawaii-manga-yugioh-games-millennium-puzzle-dmxvivtaibgxi70qrdmh6.png/kawaii-manga-yugioh-games-millennium-puzzle-wmr01n9p8a3p1wibpsrbc.png?_a=DATAiZAAZAA0"
-      />
-    </header>
-    <main>
+        />
+      </div>
       <section id="form-section">
         <form
           action="https://formspree.io/f/mjgeaydr"
@@ -25,7 +25,6 @@
           id="search-form"
         >
           <div id="search-bar">
-            <label for="query">Search</label>
             <input
               type="text"
               name="query"
@@ -38,7 +37,8 @@
           <button type="submit">Search</button>
         </form>
       </section>
-
+    </header>
+    <main>
       <section id="card-details" class="hidden">
         <div id="tester" class="hidden">
           <div id="card-basics">
@@ -53,7 +53,7 @@
             <p id="card-description">
               The ultimate wizard in terms of attack and defense.
             </p>
-            <p>
+            <p id="monster-stats">
               <span id="card-atk"> ATK: 2500 </span>
               <span id="card-def">DEF: 2100 </span>
               <span id="card-stars">STARS: 7</span>
