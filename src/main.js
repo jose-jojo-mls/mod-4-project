@@ -15,7 +15,11 @@ getRandomCards().then((dataObj) => {
 //User clicks a random card//
 listSection.addEventListener("click", (event) => {
   //scrolls to top of the page
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // window.scrollTo({ top: 0, behavior: "smooth" });
+  document.querySelector("#card-details").scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
   const closestLi = event.target.closest("li");
   const cardId = closestLi.dataset.id;
 
@@ -36,6 +40,10 @@ listSection.addEventListener("click", (event) => {
 //User searches a card by name//
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  document.querySelector("#card-details").scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
   const querySearch = form.elements.query.value;
 
   fetchByName(querySearch)

@@ -83,13 +83,13 @@ header img {
   height: 50px;
 }
 
-header h2 {
+header h1 {
   text-align: center;
   font-size: 2rem;
   animation: colorCycle 10s linear infinite;
 }
 
-header h2:hover {
+header h1:hover {
   background: linear-gradient(90deg, var(--navy) 30%, var(--gold) 50%, var(--navy) 70%);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -145,6 +145,9 @@ button {
 
 /* Single card details section */
 
+#card-details {
+  scroll-margin-top: 100px;
+}
 
 #card-details, #tester {
   padding: 30px;
