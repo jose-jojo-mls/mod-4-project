@@ -22,7 +22,7 @@ export const renderRandomCards = async (data) => {
 };
 
 export const renderSingleCard = (card) => {
-    const cardSection = document.querySelector("#card-details");
+  const cardSection = document.querySelector("#card-details");
     const cardTitle = document.querySelector("#card-title");
     const cardDescription = document.querySelector("#card-description");
     const cardImg = document.querySelector("#card-img");
@@ -55,4 +55,100 @@ export const renderSingleCard = (card) => {
     else {
         monsterStats.classList.add('hidden');
     }
+
+  cardImg.onclick = () => openPriceModal(card);
+};
+
+const openPriceModal = (card) => {
+  const modal = document.querySelector("#deck-modal");
+  const modalTitle = document.querySelector("#deck-modal-title");
+  const modalList = document.querySelector("#deck-modal-list");
+  const closeBtn = document.querySelector("#deck-modal-close");
+
+  modal.classList.remove("hidden");
+  modalTitle.textContent = `${card.name} — Market Prices`;
+
+  modalList.innerHTML = "";
+
+  card.card_prices.forEach((priceObj, index) => {
+    if (card.card_prices.length > 1) {
+      const printingLabel = document.createElement("li");
+      printingLabel.textContent = `Printing ${index + 1}`;
+      printingLabel.classList.add("printing-label");
+      modalList.append(printingLabel);
+    }
+
+    const platforms = [
+      {
+        name: "TCGPlayer",
+        price: priceObj.tcgplayer_price,
+        url: `https://www.tcgplayer.com/search/yugioh/product?q=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+      {
+        name: "TCGPlayer (Foil)",
+        price: priceObj.tcgplayer_price_foil,
+        url: `https://www.tcgplayer.com/search/yugioh/product?q=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+      {
+        name: "CardMarket",
+        price: priceObj.cardmarket_price,
+        url: `https://www.cardmarket.com/en/YuGiOh/Products/Search?searchString=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+      {
+        name: "CardMarket (Foil)",
+        price: priceObj.cardmarket_price_foil,
+        url: `https://www.cardmarket.com/en/YuGiOh/Products/Search?searchString=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+      {
+        name: "eBay",
+        price: priceObj.ebay_price,
+        url: `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(
+          card.name
+        )}+yugioh`,
+      },
+      {
+        name: "Amazon",
+        price: priceObj.amazon_price,
+        url: `https://www.amazon.com/s?k=${encodeURIComponent(
+          card.name
+        )}+yugioh`,
+      },
+      {
+        name: "Cool Stuff Inc",
+        price: priceObj.coolstuffinc_price,
+        url: `https://www.coolstuffinc.com/main_search.php?q=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+      {
+        name: "Cool Stuff (Foil)",
+        price: priceObj.coolstuffinc_price_foil,
+        url: `https://www.coolstuffinc.com/main_search.php?q=${encodeURIComponent(
+          card.name
+        )}`,
+      },
+    ];
+
+    platforms.forEach(({ name, price, url }) => {
+      if (price === undefined) return;
+
+      const li = document.createElement("li");
+      const formattedPrice = price && price !== "0.00" ? `$${price}` : "N/A";
+      li.innerHTML = `<a href="${url}" target="_blank">${name}: <strong>${formattedPrice}</strong></a>`;
+      modalList.append(li);
+    });
+  });
+
+  closeBtn.onclick = () => modal.classList.add("hidden");
+  modal.onclick = (event) => {
+    if (event.target === modal) modal.classList.add("hidden");
+  };
 };
