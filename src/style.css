@@ -77,19 +77,43 @@ header img {
   height: 50px;
 }
 
-header h1 {
+header h2 {
   text-align: center;
   font-size: 2rem;
   animation: colorCycle 10s linear infinite;
 }
 
-header h1:hover {
+header h2:hover {
   background: linear-gradient(90deg, var(--navy) 30%, var(--gold) 50%, var(--navy) 70%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: golden 3s linear infinite;
+}
+
+/* Main page section */
+
+#main-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  gap: 50px;
+  background: linear-gradient(to bottom, var(--gold), var(--cream));
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#page-title {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+#main-page p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 90%;
 }
 
 /* Form section */
