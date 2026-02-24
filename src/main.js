@@ -14,6 +14,7 @@ getRandomCards().then((dataObj) => {
 
 //User clicks a random card//
 listSection.addEventListener("click", (event) => {
+  event.preventDefault();
   //scrolls to top of the page
   // window.scrollTo({ top: 0, behavior: "smooth" });
   document.querySelector("#card-details").scrollIntoView({
